@@ -1,3 +1,12 @@
+import sys
+print("PY:", sys.version)
+try:
+    import torch
+    print("TORCH:", torch.__version__)
+except Exception as e:
+    print("Torch import failed:", e)
+
+
 # ==== DEVICE SELECTION BLOCK BEGIN ====
 
 import json
