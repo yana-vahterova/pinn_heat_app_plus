@@ -4,11 +4,9 @@ torch==2.4.1+cpu
 torchvision==0.19.1+cpu
 torchaudio==2.4.1+cpu
 scipy
-plotly
 pandas
 numpy
-json
-matplotlib
+
 
 
 
