@@ -6,6 +6,8 @@ torchaudio==2.4.1+cpu
 scipy
 pandas
 numpy
+plotly
+
 
 
 
