@@ -1,19 +1,22 @@
-# --- make local 'src' importable both locally & on Streamlit Cloud ---
+# --- BEGIN: add local 'src' to sys.path (Cloud & local) ---
 import sys
 from pathlib import Path
 
-APP_DIR = Path(__file__).resolve().parent                     # .../pinn_heat_app_plus
+APP_DIR = Path(__file__).resolve().parent  # .../pinn_heat_app_plus
+
 CANDIDATES = [
-    APP_DIR / "src",          # .../pinn_heat_app_plus/src  ← наиболее вероятно
-    APP_DIR.parent / "src",   # .../src                    ← если src на уровень выше
-    APP_DIR.parent,           # корень репозитория
+    APP_DIR / "src",          # .../pinn_heat_app_plus/src
+    APP_DIR.parent / "src",   # .../src (если структура иная)
+    APP_DIR,                  # .../pinn_heat_app_plus
+    APP_DIR.parent,           # корень репо
 ]
 
-# если в репозитории есть "src" где-то глубже — найдём его
-if not any((APP_DIR / "src").exists(), (APP_DIR.parent / "src").exists()):
+# Если рядом не нашли src — попробуем найти глубже в репо
+exists_src_near = (APP_DIR / "src").exists() or (APP_DIR.parent / "src").exists()
+if not exists_src_near:
     for p in APP_DIR.parent.rglob("src"):
         CANDIDATES.append(p)
-        break  # берём первый найденный
+        break  # первый найденный достаточно
 
 for p in CANDIDATES:
     if p.exists():
@@ -21,11 +24,11 @@ for p in CANDIDATES:
         if sp not in sys.path:
             sys.path.insert(0, sp)
 
-# отладка (временно, можно удалить после успешного запуска)
-print("DBG sys.path head:", sys.path[:3])
-print("DBG src exists @ APP_DIR/src:", (APP_DIR / "src").exists())
+# (временно для проверки — можно удалить после успешного запуска)
 print("DBG APP_DIR:", APP_DIR)
-# --------------------------------------------------------------------
+print("DBG src near?:", exists_src_near, "candidates added:", CANDIDATES[:3])
+# --- END ----------------------------------------------------
+
 
 # ==== DEVICE SELECTION BLOCK BEGIN ====
 
