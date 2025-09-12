@@ -1,4 +1,4 @@
-streamlit>=1.24
+streamlit>=1.32
 --extra-index-url https://download.pytorch.org/whl/cpu
 torch==2.4.1+cpu
 torchvision==0.19.1+cpu
@@ -7,6 +7,7 @@ scipy
 pandas
 numpy
 plotly
+
 
 
 
