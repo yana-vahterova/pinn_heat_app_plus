@@ -1,19 +1,3 @@
-# --- fix import path for local 'src' package ---
-import sys, os
-from pathlib import Path
-
-HERE = Path(__file__).resolve().parent            # .../pinn_heat_app_plus
-ROOT = HERE.parent                                # .../ (корень репо)
-SRC  = ROOT / "src"
-
-# Добавим корень и src в sys.path
-for p in (str(ROOT), str(SRC)):
-    if p not in sys.path:
-        sys.path.insert(0, p)
-# -----------------------------------------------
-
-
-
 # ==== DEVICE SELECTION BLOCK BEGIN ====
 
 import json
