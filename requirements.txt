@@ -12,16 +12,12 @@ numpy==1.19.5
 pandas==1.2.3
 seaborn==0.11.1
 streamlit==1.2.0
-torch==1.10.0+cu121
-torchaudio==0.10.0+cu121
-torchlibrosa==0.0.9
-torchsummary==1.5.1
-torchvision==0.11.1+cu121
-tqdm==4.60.0
+torch==1.8.0+cu121
 wandb==0.10.29
 # NOTE: install PyTorch separately, as wheels depend on your platform/GPU.
 # CPU  : pip install torch --index-url https://download.pytorch.org/whl/cpu
 # CUDA : pick your version at https://pytorch.org/get-started/locally/ (e.g. cu121)
+
 
 
 
