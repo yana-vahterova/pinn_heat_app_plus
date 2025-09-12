@@ -1,3 +1,23 @@
+# --- BEGIN: make local 'src' importable on Streamlit Cloud & locally ---
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent                 # .../pinn_heat_app_plus
+CANDIDATES = [
+    HERE / "src",          # .../pinn_heat_app_plus/src  ← ваш основной случай
+    HERE,                  # .../pinn_heat_app_plus
+    HERE.parent / "src",   # .../src (на случай иной структуры)
+    HERE.parent,           # .../
+]
+for p in CANDIDATES:
+    if p.exists():
+        sp = str(p)
+        if sp not in sys.path:
+            sys.path.insert(0, sp)
+
+from pathlib import Path
+print("DBG src exists:", (HERE / "src").exists(), "contents:", [p.name for p in (HERE / "src").glob("*.py")])
+
 # ==== DEVICE SELECTION BLOCK BEGIN ====
 
 import json
