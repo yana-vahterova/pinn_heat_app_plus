@@ -3,6 +3,8 @@
 import json
 import math
 import streamlit as st
+import torch
+
 # ==== DEVICE SELECTION BLOCK BEGIN ====
 def _available_devices():
     opts = ["cpu"]
