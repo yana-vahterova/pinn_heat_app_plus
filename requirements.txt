@@ -1,4 +1,6 @@
-﻿streamlit
+streamlit>=1.33
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.4.1+cpu
 plotly
 pandas
 numpy
@@ -13,6 +15,7 @@ wandb==0.10.29
 # CUDA : pick your version at https://pytorch.org/get-started/locally/ (e.g. cu121)
 -f https://data.pyg.org/whl/torch-1.13.0+cpu.html
 torch-scatter
+
 
 
 
