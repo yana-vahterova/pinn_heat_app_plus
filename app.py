@@ -1,10 +1,20 @@
+# ---- make local 'src' importable both locally & on Streamlit Cloud ----
 import sys
-print("PY:", sys.version)
-try:
-    import torch
-    print("TORCH:", torch.__version__)
-except Exception as e:
-    print("Torch import failed:", e)
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent                 # .../pinn_heat_app_plus
+CANDIDATES = [
+    HERE / "src",          # .../pinn_heat_app_plus/src   <-- ваш случай
+    HERE,                  # .../pinn_heat_app_plus
+    HERE.parent / "src",   # .../src  (на всякий)
+    HERE.parent,           # .../
+]
+for p in CANDIDATES:
+    if p.exists():
+        sp = str(p)
+        if sp not in sys.path:
+            sys.path.insert(0, sp)
+# -----------------------------------------------------------------------
 
 
 # ==== DEVICE SELECTION BLOCK BEGIN ====
