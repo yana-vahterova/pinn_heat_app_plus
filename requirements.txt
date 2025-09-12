@@ -4,21 +4,16 @@ pandas
 numpy
 math
 json
-audiomentations==0.19.0
-efficientnet_pytorch==0.7.1
-librosa==0.8.1
-matplotlib==3.3.3
-numpy==1.19.5
-pandas==1.2.3
-seaborn==0.11.1
-streamlit==1.2.0
-torch==1.8.0+cu121
+matplotlib
+torch==2.4.1+cpu ; sys_platform == 'linux'
+--extra-index-url https://download.pytorch.org/whl/cpu
 wandb==0.10.29
 # NOTE: install PyTorch separately, as wheels depend on your platform/GPU.
 # CPU  : pip install torch --index-url https://download.pytorch.org/whl/cpu
 # CUDA : pick your version at https://pytorch.org/get-started/locally/ (e.g. cu121)
 -f https://data.pyg.org/whl/torch-1.13.0+cpu.html
 torch-scatter
+
 
 
 
