@@ -45,7 +45,7 @@ def residual_gn2(model, x, t, params, q_fun=None):
         qt = gradients(q, t)
     else:
         qt = torch.zeros_like(t)
-    return utt - ktilde * uxx - qt
+    return utt - uxx - qt
 
 def residual_gn3(model, x, t, params, q_fun=None):
     x.requires_grad_(True); t.requires_grad_(True)
@@ -62,4 +62,5 @@ def residual_gn3(model, x, t, params, q_fun=None):
         qt = gradients(q, t)
     else:
         qt = torch.zeros_like(t)
-    return utt - kappa * utxx - ktilde * uxx - qt
+    return utt - kappa * utxx - uxx - qt
+
