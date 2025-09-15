@@ -194,7 +194,7 @@ with st.sidebar:
     elif _model == "Green–Naghdi II":
         st.session_state["kappa"] = 0.0
         st.session_state["tau_R"] = 0.0
-        st.session_state["kappa_tilde"] = st.number_input("kappa_tilde (~κ)", value=float(st.session_state["kappa_tilde"]), format="%.6f")
+        st.session_state["kappa_tilde"] = 0.0
         st.caption("Для GN-II параметры κ и τ_R не используются и установлены в 0.")
     elif _model == "Green–Naghdi III":
         st.session_state["kappa"] = st.number_input("kappa (κ)", value=float(st.session_state["kappa"]), format="%.6f")
